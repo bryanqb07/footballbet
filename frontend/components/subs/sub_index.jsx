@@ -1,7 +1,7 @@
 import React from 'react';
-import Sub from './sub'
+import Sub from './sub';
 import SubForm from './sub_form';
-// import { Link } from 'react-router-dom';
+
 
 class SubsIndex extends React.Component {
     constructor(props) {
@@ -14,13 +14,13 @@ class SubsIndex extends React.Component {
 
     render() {
         const subs = this.props.subs;
-        console.log(subs);
         
         return( Object.keys(subs).length > 0 ? 
             (<div>
                { Object.keys(subs).map(idx => <Sub sub={subs[idx]} key={idx} />)}
-               <SubForm createSub={this.props.createSub} currentUser={this.props.currentUser}/>
-        </div> ) :
+               <SubForm createSub={this.props.createSub} currentUser={this.props.currentUser} />
+            </div> 
+        ) :
             <h3>No subs available</h3>
             );
     }

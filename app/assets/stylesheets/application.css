@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ .sub-container{
+     border: 1px solid black;
+     margin: 1px;
+ }
