@@ -3,6 +3,15 @@ class User < ApplicationRecord
     validates :username, :email, presence: true, uniqueness: true 
     after_initialize :ensure_session_token
 
+    has_many :subs,
+        class_name: :Sub,
+        foreign_key: :moderator_id,
+        primary_key: :id,
+        inverse_of: :moderator
+
+    has_many :posts, inverse_of: :author
+    has_many :comments, inverse_of: :author
+    
     def self.generate_session_token
         SecureRandom::urlsafe_base64(16)
     end

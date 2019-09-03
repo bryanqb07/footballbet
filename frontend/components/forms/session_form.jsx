@@ -27,15 +27,15 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        const header = this.props.formType == "/login" ? ({
-            title: "Login",
-            url: "/signup",
-            text: "Signup",
-            //    passwordType: "current-password",
-        }) : ({
+        const header = this.props.formType == "/signup" ? ({
             title: "Signup",
             url: "/login",
             text: "Login",
+            //    passwordType: "current-password",
+        }) : ({
+            title: "Login",
+            url: "/signup",
+            text: "Signup",
             //    passwordType: "new-password",
         });
 
@@ -56,7 +56,7 @@ class SessionForm extends React.Component {
         return (
             <div className="login-form-container">
                 <header className="login-header">
-                    <span>Have an account already? &nbsp;&nbsp;&nbsp;
+                    <span>{ this.isLogin ? "Register for account" : "Have an account already?" } &nbsp;&nbsp;&nbsp;
                         <Link to={header.url} >
                             {header.text}
                         </Link>

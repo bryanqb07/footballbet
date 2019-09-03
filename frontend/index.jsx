@@ -16,6 +16,21 @@ window.testUser = {
     email: "bob2@mail.com"
 }
 
+import { fetchSub, fetchSubs, createSub } from './actions/sub_actions';
+
+// window.getSub = getSub;
+// window.getSubs = getSubs;
+// window.postSub = postSub;
+
+window.testSub = {
+    title: "Football chat",
+    description: "For CFB lovers",
+    moderator_id: 1
+}
+
+window.fetchSub = fetchSub;
+window.fetchSubs = fetchSubs;
+window.createSub = createSub;
 
 //
 

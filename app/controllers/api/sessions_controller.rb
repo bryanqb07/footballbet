@@ -1,4 +1,9 @@
 class Api::SessionsController < ApplicationController
+    def index
+        @subs = Sub.all
+        render :index    
+    end
+
     def create
         # debugger
         @user = User.find_by_credentials(
@@ -9,7 +14,7 @@ class Api::SessionsController < ApplicationController
             render json: 'Credentials were wrong'
         else
             login!(@user)
-            redirect_to "api/users/show"
+            redirect_to "/api/users/show"
         end
     end
 
