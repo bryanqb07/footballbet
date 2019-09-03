@@ -8,17 +8,17 @@ class Api::SessionsController < ApplicationController
             render json: 'Credentials were wrong'
         else
             login!(user)
-            redirect_to user_url(user)
+            redirect_to "api/users/show"
         end
     end
 
-    def new
-        if current_user.nil?
-            render :new
-        else
-            redirect_to user_url(current_user)
-        end        
-    end
+    # def new
+    #     if current_user.nil?
+    #         render :new
+    #     else
+    #         redirect_to user_url(current_user)
+    #     end        
+    # end
 
     def destroy
         if current_user.nil?
