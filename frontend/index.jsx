@@ -32,6 +32,23 @@ window.fetchSub = fetchSub;
 window.fetchSubs = fetchSubs;
 window.createSub = createSub;
 
+import { selectPosts } from './utils/selectors';
+window.selectPosts = selectPosts;
+
+import { postPost } from './utils/api_util';
+
+window.postPost = postPost;
+
+window.testPost = {
+    title: "good game",
+    content: "sad to lose",
+    user_id: 1,
+    sub_ids: [2]
+}
+
+import { createPost } from './actions/post_actions';
+window.createPost = createPost;
+
 //
 
 document.addEventListener("DOMContentLoaded", () => {

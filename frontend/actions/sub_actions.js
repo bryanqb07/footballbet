@@ -3,7 +3,7 @@
 export const RECEIVE_SUB = "RECEIVE_SUB";
 export const RECEIVE_SUBS = "RECEIVE_SUBS";
 
-import * as APIUtil from '../utils/sub_api_util'; 
+import * as APIUtil from '../utils/api_util'; 
 
 export const receiveSub = sub => ({
     type: RECEIVE_SUB,

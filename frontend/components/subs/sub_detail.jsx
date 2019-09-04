@@ -1,5 +1,6 @@
 import React from 'react';
 import Sub from './sub'
+import PostsIndexContainer from '../posts/posts_index_container';
 
 class SubDetail extends React.Component {
     constructor(props) {
@@ -18,14 +19,14 @@ class SubDetail extends React.Component {
 
     render() {
         const { sub, currentUser } = this.props;
-        console.log(sub);
-        return (sub ? <Sub sub={sub} /> : <p>Hello</p>)
-        // return (Object.keys(sub).length > 0 ?
-        //     (<div>
-        //         <Sub sub={sub} />
-        //     </div>) :
-        //     <h3>Error</h3>
-        // );
+        return (sub ? 
+            <div>
+                <Sub sub={sub} /> 
+                <PostsIndexContainer subId={sub.id} post_ids={sub.post_ids}/>
+            </div> : 
+        <p>Loading...</p>
+        )
+
     }
 }
 
