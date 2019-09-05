@@ -1,6 +1,7 @@
-import merge from 'lodash/merge';
+import merge from 'lodash.merge';
 
 import { RECEIVE_SUB, RECEIVE_SUBS } from '../actions/sub_actions';
+import { RECEIVE_POST } from '../actions/post_actions';
 
 export default (state = {}, action) => {
     Object.freeze(state);
@@ -9,6 +10,10 @@ export default (state = {}, action) => {
             return merge({}, state, { [action.sub.id]: action.sub });
         case RECEIVE_SUBS:
             return action.subs;
+        case RECEIVE_POST:
+            console.log(action)
+            state[action.post.sub_ids[0]].post_ids.push(action.post.id)
+            return state;
         default:
             return state;
     }

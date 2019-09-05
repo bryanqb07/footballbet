@@ -16,7 +16,8 @@ class PostsIndex extends React.Component {
     // }
 
     render() {
-       console.log(this.props);
+
+
         const posts = this.props.posts;
         // debugger
         return (Object.keys(posts).length > 0 ?
@@ -29,7 +30,13 @@ class PostsIndex extends React.Component {
                     subId={this.props.subId}/>
             </div>
             ) :
-            <h3>No posts available</h3>
+            <div>
+                <h3>No posts available</h3>
+                <PostForm
+                    createPost={this.props.createPost}
+                    currentUser={this.props.currentUser}
+                    subId={this.props.subId} />
+            </div >
         );
     }
 }
