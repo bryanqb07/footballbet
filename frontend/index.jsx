@@ -32,8 +32,9 @@ window.fetchSub = fetchSub;
 window.fetchSubs = fetchSubs;
 window.createSub = createSub;
 
-import { selectPosts } from './utils/selectors';
+import { selectPosts, selectComments } from './utils/selectors';
 window.selectPosts = selectPosts;
+window.selectComments = selectComments;
 
 import { postPost, postComment } from './utils/api_util';
 

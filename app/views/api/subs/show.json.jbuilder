@@ -2,16 +2,25 @@ json.partial! "sub", sub: @sub
 post_ids = []
 @sub.posts.includes(:author, :comments).each do |post|
     post_ids << post[:id]
+    comment_ids = []
+    parent_comment_ids = []
+    post.comments.includes(:author).each do |comment|
+        comment_ids << comment[:id]
+        parent_comment_ids << comment[:id] if comment[:parent_comment_id].nil? 
+        json.comments do
+            json.set! comment[:id] do 
+                json.extract! comment, :body, :user_id, :post_id, :parent_comment_id
+                json.extract! comment.author, :username
+                json.set! "child_comments", comment.child_comments
+            end
+        end
+    end
+
     json.posts do    
         json.set! post[:id] do 
             json.extract! post, :title, :content, :user_id
-            parent_comment_ids = []
-            post.parent_comments_only.each do |comment|
-                parent_comment_ids << comment[:id]
-                json.comments do
-                    json.set! post[:id], comment, :body, :user_id, :post_id, :parent_comment_id
-                end
-            end
+            json.extract! post.author, :username
+            json.set! "comment_ids", comment_ids
             json.set! "parent_comment_ids", parent_comment_ids
         end
     end

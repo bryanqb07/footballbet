@@ -16,28 +16,26 @@ class PostsIndex extends React.Component {
     // }
 
     render() {
-
-
         const posts = this.props.posts;
         // debugger
-        return (Object.keys(posts).length > 0 ?
+        const header = ( Object.keys(posts).length > 0 ?
             (<div>
                 <h3>Posts</h3>
                 {Object.keys(posts).map(idx => <Post post={posts[idx]} key={idx} />)}
-                <PostForm 
-                    createPost={this.props.createPost} 
-                    currentUser={this.props.currentUser} 
-                    subId={this.props.subId}/>
-            </div>
-            ) :
-            <div>
-                <h3>No posts available</h3>
-                <PostForm
-                    createPost={this.props.createPost}
-                    currentUser={this.props.currentUser}
-                    subId={this.props.subId} />
-            </div >
-        );
+            </div>)
+        : (<h3>No posts available</h3>) )
+            
+
+        return (
+                <div>
+                    { header }
+                    <PostForm
+                        createPost={this.props.createPost}
+                        currentUser={this.props.currentUser}
+                        subId={this.props.subId} />
+                </div >
+            )
+
     }
 }
 
