@@ -2,7 +2,6 @@ class Api::PostsController < ApplicationController
     before_action :authors_only!, only: [:edit, :update]
 
     def create
-
         @post = current_user.posts.new(post_params)
         if @post.save
             redirect_to api_post_url(@post)

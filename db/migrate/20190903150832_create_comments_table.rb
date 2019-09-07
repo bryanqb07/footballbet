@@ -5,6 +5,8 @@ class CreateCommentsTable < ActiveRecord::Migration[5.2]
       t.integer :user_id, null: false
       t.integer :post_id, null: false
       t.integer :parent_comment_id
+
+      t.timestamps
     end
       add_index :comments, :user_id
       add_index :comments, :post_id

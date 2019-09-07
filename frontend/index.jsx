@@ -35,9 +35,10 @@ window.createSub = createSub;
 import { selectPosts } from './utils/selectors';
 window.selectPosts = selectPosts;
 
-import { postPost } from './utils/api_util';
+import { postPost, postComment } from './utils/api_util';
 
 window.postPost = postPost;
+window.postComment = postComment;
 
 window.testPost = {
     title: "good game",
@@ -48,6 +49,20 @@ window.testPost = {
 
 import { createPost } from './actions/post_actions';
 window.createPost = createPost;
+
+window.testComment1 = {
+    body: "This is a test comment",
+    user_id: 1,
+    post_id: 9,
+}
+
+window.testComment2 = {
+    body: "This is a reply comment",
+    user_id: 1,
+    post_id: 9,
+    parent_comment_id: 1
+}
+
 
 //
 

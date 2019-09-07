@@ -6,5 +6,7 @@ export default ({ post }) => (
         <div className="sub-container">
             <p>Title: {post.title}</p>
             <p>Content: {post.content}</p>
+            <h3>Comments</h3>
+            
         </div>
 ) 

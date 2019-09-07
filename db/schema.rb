@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_09_03_150832) do
     t.integer "user_id", null: false
     t.integer "post_id", null: false
     t.integer "parent_comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["parent_comment_id"], name: "index_comments_on_parent_comment_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"

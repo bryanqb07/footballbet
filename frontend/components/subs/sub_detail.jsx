@@ -1,6 +1,7 @@
 import React from 'react';
 import Sub from './sub'
 import PostsIndexContainer from '../posts/posts_index_container';
+import { Link } from 'react-router-dom';
 
 class SubDetail extends React.Component {
     constructor(props) {
@@ -21,6 +22,7 @@ class SubDetail extends React.Component {
         const { sub, currentUser } = this.props;
         return (sub ? 
             <div>
+                <Link to="/">Home</Link>
                 <Sub sub={sub} /> 
                 <PostsIndexContainer subId={sub.id} post_ids={sub.post_ids}/>
             </div> : 
