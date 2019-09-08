@@ -19,9 +19,7 @@ class PostForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const newPost = merge(this.state, { user_id: this.props.currentUser.id, sub_ids: [this.props.subId] });
-        console.log(this.props)
-        console.log(newPost)
-        debugger
+        
         this.props.createPost(newPost);
     }
 

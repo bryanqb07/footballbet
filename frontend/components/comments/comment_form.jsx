@@ -17,14 +17,15 @@ class CommentForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const newComment = merge(this.state, { 
-            user_id: this.props.currentUser.id, 
-            post_id: [this.props.postId] });
-        // console.log(this.props)
-        // console.log(newPost)
-        // debugger
+        console.log(this.props)
+        const newComment = merge(this.state, {
+            post_id: this.props.post_id,
+            parent_comment_id: this.props.parent_comment_id
+        });
+ 
         this.props.createComment(newComment);
-    }
+        this.setState({ body: ""}); // clear comment form
+   }
 
     render() {
         return (

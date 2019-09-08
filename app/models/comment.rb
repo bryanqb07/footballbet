@@ -18,4 +18,5 @@ class Comment < ApplicationRecord
         foreign_key: :parent_comment_id,
         primary_key: :id,
         optional: true
+
 end

@@ -1,2 +1,0 @@
-json.extract! @comment, :body, :user_id, :post_id, :parent_comment_id
-json.extract! @comment.author, :username

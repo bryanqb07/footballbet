@@ -17,11 +17,14 @@ class CommentsIndex extends React.Component {
 
     render() {
         const comments = this.props.comments;
-        // debugger
+
         const header = (Object.keys(comments).length > 0 ?
             (<div>
                 <h5>Comments</h5>
-                {Object.keys(comments).map(idx => <Comment comment={comments[idx]} key={idx} />)}
+                {Object.keys(comments).map(idx => <Comment
+                    createComment={this.props.createComment} 
+                    comment={comments[idx]} 
+                    key={comments[idx].id} />)}
             </div>)
             : (<h5>No comments available</h5>))
 
@@ -31,7 +34,9 @@ class CommentsIndex extends React.Component {
                 <CommentForm
                     createComment={this.props.createComment}
                     currentUser={this.props.currentUser}
-                    postId={this.props.postId} />
+                    post_id={this.props.post_id} 
+                    parent_id={null}
+                />
             </div >
         )
     }

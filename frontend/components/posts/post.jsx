@@ -7,6 +7,6 @@ export default ({ post }) => (
             <p>Title: {post.title}</p>
             <p>Content: {post.content}</p>
             <p>Author: {post.username}</p>
-            <CommentsIndexContainer comment_ids={post.parent_comment_ids} />
+            <CommentsIndexContainer comment_ids={post.parent_comment_ids} post_id={post.id} />
         </div>
 ) 
