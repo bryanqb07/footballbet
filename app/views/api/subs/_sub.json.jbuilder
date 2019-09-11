@@ -1,3 +1,3 @@
-json.extract! sub, :id, :title, :description, :moderator_id
+json.extract! sub, :id, :title, :description, :moderator_id, :created_at
 
   

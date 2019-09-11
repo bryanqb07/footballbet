@@ -5,19 +5,12 @@ import merge from 'lodash.merge';
 class CommentForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            body: ""
-        }
-        this.handleInput = this.handleInput.bind(this);
+        this.state = { body: "" }
     }
 
-    handleInput(type) {
-        return (e) => this.setState({ [type]: e.target.value });
-    }
-
-    handleSubmit(e) {
+    handleSubmit(e) {       
         e.preventDefault();
-        console.log(this.props)
+
         const newComment = merge(this.state, {
             post_id: this.props.post_id,
             parent_comment_id: this.props.parent_comment_id
@@ -28,12 +21,15 @@ class CommentForm extends React.Component {
    }
 
     render() {
+        
         return (
             <div>
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     <input
                         placeholder="Add comment here..." 
-                        value={this.state.body} onChange={this.handleInput("body")} type="text" />
+                        value={this.state.body} 
+                        onChange={(e) => this.setState({ body: e.target.value })} 
+                        type="text" />
                     <input type="submit" />
                 </form>
             </div>

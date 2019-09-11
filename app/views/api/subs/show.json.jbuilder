@@ -9,7 +9,7 @@ post_ids = []
         parent_comment_ids << comment[:id] if comment[:parent_comment_id].nil? 
         json.comments do
             json.set! comment[:id] do 
-                json.extract! comment, :id, :body, :user_id, :post_id, :parent_comment_id
+                json.extract! comment, :id, :body, :user_id, :post_id, :parent_comment_id, :created_at
                 json.extract! comment.author, :username
                 json.partial! "api/comments/child_comments", comments: comment.child_comments
             end
@@ -18,7 +18,7 @@ post_ids = []
 
     json.posts do    
         json.set! post[:id] do 
-            json.extract! post, :id, :title, :content, :user_id
+            json.extract! post, :id, :title, :content, :user_id, :created_at
             json.extract! post.author, :username
             json.set! "comment_ids", comment_ids
             json.set! "parent_comment_ids", parent_comment_ids

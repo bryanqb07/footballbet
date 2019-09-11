@@ -7,7 +7,7 @@ class PostForm extends React.Component {
         super(props);
         this.state = {
             title: "",
-            content: "",
+            content: ""
         }
         this.handleInput = this.handleInput.bind(this);
     }
@@ -19,8 +19,9 @@ class PostForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const newPost = merge(this.state, { user_id: this.props.currentUser.id, sub_ids: [this.props.subId] });
-        
         this.props.createPost(newPost);
+
+        this.setState({ title: "", content: ""});
     }
 
     render() {
@@ -32,7 +33,7 @@ class PostForm extends React.Component {
                     <input value={this.state.title} onChange={this.handleInput("title")} type="text" />
                     <br />
                     <span>Description: </span>
-                    <input value={this.state.description} onChange={this.handleInput("content")} type="text" />
+                    <input value={this.state.content} onChange={this.handleInput("content")} type="text" />
                     <br />
                     <input type="submit" />
                 </form>

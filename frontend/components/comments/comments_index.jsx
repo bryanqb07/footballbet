@@ -10,8 +10,9 @@ class CommentsIndex extends React.Component {
     }
 
     // componentDidUpdate(prevProps){
-    //     (prevProps.post_ids != this.props.post_ids){
-    //         this.props.
+    //     if(prevProps.comments != this.props.comments){
+    //         console.log(prevProps.comments);
+    //         console.log(this.props.comments);
     //     }
     // }
 
@@ -30,13 +31,12 @@ class CommentsIndex extends React.Component {
 
         return (
             <div>
-                {header}
                 <CommentForm
                     createComment={this.props.createComment}
-                    currentUser={this.props.currentUser}
-                    post_id={this.props.post_id} 
+                    post_id={this.props.post_id}
                     parent_id={null}
                 />
+                {header}
             </div >
         )
     }

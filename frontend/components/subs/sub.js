@@ -7,6 +7,7 @@ export default ({sub}) => (
         <div className="sub-container">
             <p>Title: {sub.title}</p>
             <p>Description: {sub.description}</p>
+            <p>Created at: {new Date(sub.created_at).toDateString()}</p>
         </div>
     </Link>
 ) 

@@ -1,5 +1,5 @@
 import merge from 'lodash.merge';
-
+import { commentUpdate } from '../utils/search_utils';
 import { RECEIVE_SUB } from '../actions/sub_actions';
 import { RECEIVE_COMMENT } from '../actions/comment_actions';
 
@@ -9,7 +9,8 @@ export default (state = {}, action) => {
         case RECEIVE_COMMENT:
             const newState = merge({}, state, { [action.comment.id]: action.comment })
             if (action.comment.parent_comment_id){
-                newState[action.comment.parent_comment_id].child_comments.push(action.comment)
+                commentUpdate(newState, action.comment)
+ //               newState[action.comment.parent_comment_id].child_comments.push(action.comment)
             }
             return newState;
         case RECEIVE_SUB:

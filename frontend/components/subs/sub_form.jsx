@@ -20,6 +20,7 @@ class SubForm extends React.Component {
         e.preventDefault();
         const newSub = merge(this.state, { moderator_id: this.props.currentUser.id});
         this.props.createSub(newSub);
+        this.setState({ title: "", description: ""})
     }
 
     render() {

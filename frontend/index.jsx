@@ -4,6 +4,12 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 // WINDOW TESTING
+
+import { commentUpdate, keySearch } from './utils/search_utils';
+
+window.commentUpdate = commentUpdate;
+window.keySearch = keySearch;
+
 import { postUser, postSession, deleteSession } from './utils/session_api_util';
 
 window.postUser = postUser;

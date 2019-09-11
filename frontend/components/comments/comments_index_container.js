@@ -5,11 +5,11 @@ import { selectComments } from '../../utils/selectors';
 
 
 const mapStateToProps = (state, ownProps) => ({
-    comments: selectComments(state, ownProps.comment_ids),
+    comments: selectComments(state, ownProps.comment_ids)
 });
 
 const mapDispatchToProps = dispatch => ({
-    createComment: (newComment) => dispatch(createComment(newComment))
+    createComment: (newComment) => dispatch(createComment(newComment)),
 });
 
 export default connect(
