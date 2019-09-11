@@ -1,4 +1,6 @@
 class Comment < ApplicationRecord
+    include Votable
+
     validates :body, presence: true
 
     belongs_to :post, inverse_of: :comments

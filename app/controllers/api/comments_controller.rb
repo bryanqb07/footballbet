@@ -30,6 +30,14 @@ class Api::CommentsController < ApplicationController
         end
     end
 
+    def upvote
+        vote(1)
+    end
+
+    def downvote
+        vote(-1)
+    end
+
 
     protected 
 
@@ -40,5 +48,16 @@ class Api::CommentsController < ApplicationController
     def authors_only!
         return if current_user.comments.find_by(id: params[:id])
         render json: "Forbidden", status: :forbidden
+    end
+
+    def vote(direction)
+        @comment = Comment.find_by(id: params[:id])
+        @user_vote = @comment.user_votes.find_or_initialize_by(user: current_user) 
+        
+        unless @user_vote.update(value: direction)
+            flash[:errors] = @user_vote.errors.full_messages
+        end
+        
+        redirect_to api_comment_url(@comment)
     end
 end

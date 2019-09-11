@@ -1,6 +1,8 @@
 require 'byebug'
 
 class Post < ApplicationRecord
+    include Votable
+    
     belongs_to :user
     validates :title, presence: true 
     validates :subs, presence: { message: "Must have at least one sub."}

@@ -30,6 +30,14 @@ class Api::PostsController < ApplicationController
         end
     end
 
+    def upvote
+        vote(1)
+    end
+
+    def downvote
+        vote(-1)
+    end
+
 
     protected 
 
@@ -42,4 +50,14 @@ class Api::PostsController < ApplicationController
         render json: "Forbidden", status: :forbidden
     end
 
+    def vote(direction)
+        @post = Post.find_by(id: params[:id])
+        @user_vote = @post.user_votes.find_or_initialize_by(user: current_user) 
+        
+        unless @user_vote.update(value: direction)
+            flash[:errors] = @user_vote.errors.full_messages
+        end
+        
+        redirect_to api_post_url(@post)
+    end
 end
