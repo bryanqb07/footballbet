@@ -9,13 +9,6 @@ class CommentsIndex extends React.Component {
         super(props);
     }
 
-    // componentDidUpdate(prevProps){
-    //     if(prevProps.comments != this.props.comments){
-    //         console.log(prevProps.comments);
-    //         console.log(this.props.comments);
-    //     }
-    // }
-
     render() {
         const comments = this.props.comments;
 
@@ -25,7 +18,10 @@ class CommentsIndex extends React.Component {
                 {Object.keys(comments).map(idx => <Comment
                     createComment={this.props.createComment} 
                     comment={comments[idx]} 
-                    key={comments[idx].id} />)}
+                    key={comments[idx].updated_at} 
+                    upVoteComment={this.props.upVoteComment}
+                    downVoteComment={this.props.downVoteComment} 
+                />)}
             </div>)
             : (<h5>No comments available</h5>))
 

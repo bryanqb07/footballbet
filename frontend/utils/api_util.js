@@ -45,3 +45,31 @@ export const postComment = (comment) => (
         data: { comment }
     })
 );
+
+export const downVoteComment = comment_id => (
+    $.ajax({
+        method: "POST",
+        url: `/api/comments/${comment_id}/downvote`,
+    })
+);
+
+export const upVoteComment = comment_id => (
+    $.ajax({
+        method: "POST",
+        url: `/api/comments/${comment_id}/upvote`,
+    })
+);
+
+export const downVotePost = post_id => (
+    $.ajax({
+        method: "POST",
+        url: `/api/posts/${post_id}/downvote`,
+    })
+);
+
+export const upVotePost = post_id => (
+    $.ajax({
+        method: "POST",
+        url: `/api/posts/${post_id}/upvote`,
+    })
+);

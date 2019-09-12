@@ -1,0 +1,18 @@
+Posts/Comments
+
+Sort by popularity
+
+
+Comments 
+
+Look for posts.includes(:comments, :comments.includes:author])
+
+Votes
+
+fix bug in {key}
+
+
+user profile
+
+
+

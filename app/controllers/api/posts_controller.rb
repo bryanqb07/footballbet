@@ -19,7 +19,6 @@ class Api::PostsController < ApplicationController
         @post = current_user.posts.find(params[:id])
     end
 
-
     def update  
         @post = current_user.posts.find(params[:id])
         if @post.update(post_params)
@@ -39,8 +38,6 @@ class Api::PostsController < ApplicationController
     end
 
 
-    protected 
-
     def post_params
         self.params.require(:post).permit(:title, :url, :content, :user_id, sub_ids: [])
     end
@@ -57,7 +54,9 @@ class Api::PostsController < ApplicationController
         unless @user_vote.update(value: direction)
             flash[:errors] = @user_vote.errors.full_messages
         end
-        
+
+        @post.updated_at = Time.now
+
         redirect_to api_post_url(@post)
     end
 end

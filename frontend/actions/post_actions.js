@@ -13,6 +13,13 @@ export const receivePost = post => ({
 export const createPost = post => dispatch => APIUtil.postPost(post)
     .then(post => dispatch(receivePost(post)));
 
+export const upVotePost = post_id => dispatch => APIUtil.upVotePost(post_id)
+    .then(post => dispatch(receivePost(post)));
+
+export const downVotePost = post_id => dispatch => APIUtil.upVotePost(post_id)
+    .then(post => dispatch(receivePost(post)));
+
+
 // export const receivePosts = sub => ({
 //     type: RECEIVE_SUB,
 //     posts: sub.posts

@@ -11,12 +11,5 @@ module Votable
     def votes
         self.user_votes.sum(:value)
     end
-
-    def upvotes
-        self.user_votes.where(value: 1).count
-    end
-
-    def downvotes
-        self.user_votes.where(value: -1).count
-    end
+    
 end

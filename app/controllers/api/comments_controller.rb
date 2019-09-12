@@ -52,8 +52,8 @@ class Api::CommentsController < ApplicationController
 
     def vote(direction)
         @comment = Comment.find_by(id: params[:id])
-        @user_vote = @comment.user_votes.find_or_initialize_by(user: current_user) 
-        
+        @user_vote = @comment.user_votes.find_or_initialize_by(user: current_user)         
+
         unless @user_vote.update(value: direction)
             flash[:errors] = @user_vote.errors.full_messages
         end

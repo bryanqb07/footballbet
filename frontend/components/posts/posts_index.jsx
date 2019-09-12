@@ -21,7 +21,12 @@ class PostsIndex extends React.Component {
         const header = ( Object.keys(posts).length > 0 ?
             (<div>
                 <h3>Posts</h3>
-                {Object.keys(posts).map(idx => <Post post={posts[idx]} key={posts[idx].id ^ 3} />)}
+                {Object.keys(posts).map(idx => <Post 
+                    post={posts[idx]} 
+                    key={posts[idx].updated_at} 
+                    upVotePost={this.props.upVotePost}
+                    downVotePost={this.props.downVotePost}
+                    />)}
             </div>)
         : (<h3>No posts available</h3>) )
             

@@ -24,6 +24,7 @@ class Api::SubsController < ApplicationController
 
     def show
         @sub = Sub.find(params[:id])
+        @posts = @sub.posts.includes(:comments, :author, :user_votes)
         render :show
     end
 

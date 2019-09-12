@@ -11,10 +11,18 @@ window.commentUpdate = commentUpdate;
 window.keySearch = keySearch;
 
 import { postUser, postSession, deleteSession } from './utils/session_api_util';
+import { upVoteComment, downVoteComment } from './actions/comment_actions';
+import { upVotePost, downVotePost } from './actions/post_actions';
 
 window.postUser = postUser;
 window.postSession = postSession;
 window.deleteSession = deleteSession;
+window.upVoteComment = upVoteComment;
+window.downVoteComment = downVoteComment;
+
+window.upVotePost = upVotePost;
+window.downVotePost = downVotePost;
+
 
 window.testUser = {
     username: "boblaw2",

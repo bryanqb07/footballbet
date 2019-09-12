@@ -1,4 +1,4 @@
-import merge from 'lodash/merge';
+import merge from 'lodash.merge';
 
 import { RECEIVE_POST } from '../actions/post_actions';
 import { RECEIVE_SUB } from '../actions/sub_actions';
