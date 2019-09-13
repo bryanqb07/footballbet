@@ -5,7 +5,7 @@ post_ids = []
     comment_ids = []
     parent_comment_ids = []
     child_comment_hash = post.comments_by_parent
-    post.comments.includes(:author, :user_votes).each do |comment|
+    post.comments.each do |comment|
         comment_ids << comment[:id]
         parent_comment_ids << comment[:id] if comment[:parent_comment_id].nil? 
         json.comments do
@@ -19,7 +19,7 @@ post_ids = []
 
     json.posts do    
         json.set! post[:id] do 
-            json.partial! "api/posts/post", post: post, parent_comment_ids: parent_comment_ids
+            json.partial! "api/posts/post", post: post, comment_ids: comment_ids, parent_comment_ids: parent_comment_ids
         end
     end
 end
