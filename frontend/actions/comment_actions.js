@@ -1,6 +1,8 @@
 // import RECEIVE_SUB from './sub_actions';
 
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
+export const UPDATE_COMMENT = "UPDATE_COMMENT";
+
 
 import * as APIUtil from '../utils/api_util';
 
@@ -9,11 +11,16 @@ export const receiveComment = comment => ({
     comment
 });
 
+export const updateComment = comment => ({
+    type: UPDATE_COMMENT,
+    comment
+});
+
 export const createComment = comment => dispatch => APIUtil.postComment(comment)
     .then(comment => dispatch(receiveComment(comment)));
 
 export const upVoteComment = comment_id => dispatch => APIUtil.upVoteComment(comment_id)
-    .then(comment => dispatch(receiveComment(comment)));
+    .then(comment => dispatch(updateComment(comment)));
 
 export const downVoteComment = comment_id => dispatch => APIUtil.downVoteComment(comment_id)
-    .then(comment => dispatch(receiveComment(comment)));
+    .then(comment => dispatch(updateComment(comment)));

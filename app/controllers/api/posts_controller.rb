@@ -55,7 +55,7 @@ class Api::PostsController < ApplicationController
             flash[:errors] = @user_vote.errors.full_messages
         end
 
-        @post.updated_at = Time.now
+        # @post.updated_at = Time.now
 
         redirect_to api_post_url(@post)
     end
