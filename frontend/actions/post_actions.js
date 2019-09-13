@@ -16,7 +16,7 @@ export const createPost = post => dispatch => APIUtil.postPost(post)
 export const upVotePost = post_id => dispatch => APIUtil.upVotePost(post_id)
     .then(post => dispatch(receivePost(post)));
 
-export const downVotePost = post_id => dispatch => APIUtil.upVotePost(post_id)
+export const downVotePost = post_id => dispatch => APIUtil.downVotePost(post_id)
     .then(post => dispatch(receivePost(post)));
 
 

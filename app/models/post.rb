@@ -25,9 +25,9 @@ class Post < ApplicationRecord
         self.comments.pluck(:id)
     end
 
-    # def parent_comment_ids
-    #     self.comments.where(parent_comment_id: nil).pluck(:id)
-    # end
+    def parent_comment_ids
+        self.comments.where(parent_comment_id: nil).pluck(:id)
+    end
     
     def comments_by_parent
         comments_by_parent = Hash.new { |hash, key| hash[key] = []}
