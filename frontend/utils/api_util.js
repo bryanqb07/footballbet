@@ -13,6 +13,14 @@ export const getSub = (id) => (
     })
 );
 
+export const searchSubs = (query) => (
+    $.ajax({
+        method: "GET",
+        url: `/api/subs/search`,
+        data: { query }
+    })
+)
+
 export const postSub = (sub) => (
     $.ajax({
         method: "POST",

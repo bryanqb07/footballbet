@@ -18,7 +18,7 @@ import SubDetailContainer from './subs/sub_detail_container';
 export default () => (
     <div className="content-wrapper">
         <header>
-            <Route exact path="/" component={NavBar} />
+            <Route path="/" component={NavBar} />
         </header>
         <Switch>
             <Route exact path="/" component={HomePage} />

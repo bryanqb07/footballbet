@@ -29,13 +29,18 @@ class Post < ApplicationRecord
         self.comments.where(parent_comment_id: nil).pluck(:id)
     end
     
-    def comments_by_parent
+    def comments_by_parent(include_authors)
         comments_by_parent = Hash.new { |hash, key| hash[key] = []}
-
-        self.comments.includes(:author).each do |comment|
+        
+        # author only needed to be included in the Comment#show model
+        # because I pre-included in the Sub#show for the comments index 
+        
+        comments = include_authors ? self.comments.includes(:author) : self.comments
+        comments.each do |comment|
             comments_by_parent[comment.parent_comment_id] << comment
         end
         
         comments_by_parent
     end
+
 end

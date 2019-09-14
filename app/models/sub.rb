@@ -2,6 +2,9 @@ class Sub < ApplicationRecord
     validates :description, :title, presence: true
     validates :title, uniqueness: true 
 
+    extend FriendlyId
+    friendly_id :title, use: :slugged
+
     has_many :post_subs, inverse_of: :subs, dependent: :destroy 
     has_many :posts, through: :post_subs, source: :post 
 

@@ -19,3 +19,13 @@
     margin: 10px;
     padding: 5px;
 }
+
+.sub-search-item{
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.sub-search-item:hover{
+    cursor: pointer;
+    background-color: lightblue;
+}

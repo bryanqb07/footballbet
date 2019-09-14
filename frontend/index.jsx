@@ -52,6 +52,11 @@ window.selectComments = selectComments;
 
 import { postPost, postComment } from './utils/api_util';
 
+import { searchSubs, clearSearchSubs } from './actions/sub_actions';
+window.searchSubs = searchSubs;
+window.clearSearchSubs = clearSearchSubs;
+
+
 window.postPost = postPost;
 window.postComment = postComment;
 

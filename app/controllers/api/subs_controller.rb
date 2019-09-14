@@ -3,6 +3,7 @@ class Api::SubsController < ApplicationController
 
     def index
         @subs = Sub.all
+
         render :index
     end
 
@@ -23,8 +24,8 @@ class Api::SubsController < ApplicationController
     # end
 
     def show
-        @sub = Sub.find(params[:id])
-        @posts = @sub.posts.includes(:author, { comments: :author})
+        @sub = Sub.friendly.find(params[:id])
+        @posts = @sub.posts.includes(:author, { comments: :author })
         render :show
     end
 
@@ -35,8 +36,7 @@ class Api::SubsController < ApplicationController
     def update 
         @sub = Sub.find(params[:id])
         if @sub.update(sub_params)
-            redirect_to sub_url(@sub)
-
+            redirect_to api_sub_url(@sub)
         else
             flash.now[:errors] = @sub.errors.full_messages
             render :edit
@@ -44,6 +44,15 @@ class Api::SubsController < ApplicationController
     end
 
     def destroy 
+    end
+
+    def search
+        if params[:query].present?
+            @subs = Sub.where('title ~ ?', params[:query])
+        else
+            @subs = Sub.none
+        end
+        render :index
     end
 
     protected

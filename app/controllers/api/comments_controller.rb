@@ -13,7 +13,7 @@ class Api::CommentsController < ApplicationController
     def show 
         @comment = Comment.find(params[:id])
         @child_comments = @comment.child_comments.includes(:author)
-        @child_comment_hash = @comment.post.comments_by_parent
+        @child_comment_hash = @comment.post.comments_by_parent(true)
         render :show 
     end
 

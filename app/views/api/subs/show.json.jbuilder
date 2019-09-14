@@ -4,7 +4,7 @@ post_ids = []
     post_ids << post[:id]
     comment_ids = []
     parent_comment_ids = []
-    child_comment_hash = post.comments_by_parent
+    child_comment_hash = post.comments_by_parent(false)
     post.comments.each do |comment|
         comment_ids << comment[:id]
         parent_comment_ids << comment[:id] if comment[:parent_comment_id].nil? 

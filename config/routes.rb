@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   namespace :api, :defaults => {:format => 'json' } do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy]
-    resources :subs, except: [:new]
+    resources :subs, except: [:new] do
+      get "search", on: :collection
+    end
     resources :posts, only: [:create, :show, :edit, :update] do 
         member do
           post 'downvote'
