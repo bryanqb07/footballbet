@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
             ""
         )
         return (
-            <div>
+            <div className="search-index-wrapper">
                 <SearchForm searchSubs={this.props.searchSubs}/>
                 { searchList }
             </div >

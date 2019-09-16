@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_001225) do
+ActiveRecord::Schema.define(version: 2019_09_15_235443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,16 +38,6 @@ ActiveRecord::Schema.define(version: 2019_09_14_001225) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "post_subs", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.integer "sub_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id", "sub_id"], name: "index_post_subs_on_post_id_and_sub_id", unique: true
-    t.index ["post_id"], name: "index_post_subs_on_post_id"
-    t.index ["sub_id"], name: "index_post_subs_on_sub_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.string "url"
@@ -55,6 +45,8 @@ ActiveRecord::Schema.define(version: 2019_09_14_001225) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sub_id", default: 0, null: false
+    t.index ["sub_id"], name: "index_posts_on_sub_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -89,7 +81,9 @@ ActiveRecord::Schema.define(version: 2019_09_14_001225) do
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "subscription_ids", default: [], array: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
+    t.index ["subscription_ids"], name: "index_users_on_subscription_ids", using: :gin
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 

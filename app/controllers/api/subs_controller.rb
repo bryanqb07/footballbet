@@ -2,8 +2,7 @@ class Api::SubsController < ApplicationController
     before_action :moderators_only!, only: [:edit, :update]
 
     def index
-        @subs = Sub.all
-
+        @subs = !!current_user ? current_user.subscriptions : Sub.all.limit(20)
         render :index
     end
 

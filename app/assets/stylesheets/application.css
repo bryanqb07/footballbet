@@ -29,3 +29,9 @@
     cursor: pointer;
     background-color: lightblue;
 }
+
+.search-index-wrapper{
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+}

@@ -11,5 +11,9 @@ module Votable
     def votes
         self.user_votes.sum(:value)
     end
-    
+   
+    #hack used to sort in opposite order
+    def votes_opposite
+        -self.votes
+    end
 end

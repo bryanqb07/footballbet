@@ -12,7 +12,20 @@ class User < ApplicationRecord
     has_many :posts, inverse_of: :author
     has_many :comments, inverse_of: :author
 
+
     has_many :user_votes, inverse_of: :user
+
+    def subscriptions
+        Sub.where(id: self.subscription_ids)
+    end
+
+    def self.seed
+        10000.times do 
+            name = Faker::Name.unique.name
+            email = name + "@mail.com"
+            new_user = User.create(username: name, password: "test123", email: email)
+        end
+    end
 
     def self.generate_session_token
         SecureRandom::urlsafe_base64(16)
