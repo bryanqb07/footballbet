@@ -50,11 +50,15 @@ import { selectPosts, selectComments } from './utils/selectors';
 window.selectPosts = selectPosts;
 window.selectComments = selectComments;
 
-import { postPost, postComment } from './utils/api_util';
+import { postPost, postComment, postSubscription } from './utils/api_util';
+
+window.postSubscription = postSubscription;
 
 import { searchSubs, clearSearchSubs } from './actions/sub_actions';
 window.searchSubs = searchSubs;
 window.clearSearchSubs = clearSearchSubs;
+
+
 
 
 window.postPost = postPost;

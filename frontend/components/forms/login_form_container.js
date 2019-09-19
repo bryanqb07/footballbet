@@ -1,14 +1,21 @@
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 import SessionForm from './session_form';
 
-const mapStateToProps = ({ errors }, ownProps) => ({
+const mapStateToProps = ({ errors }) => ({
     errors: errors.session,
-    formType: ownProps.match.path
+    formType: "login"
 });
 
 const mapDispatchToProps = dispatch => ({
-    processForm: (user) => dispatch(login(user))
+    processForm: (user) => dispatch(login(user)),
+    otherForm: (
+        <button onClick={()=>dispatch(openModal("signup"))}>
+            Signup
+        </button>
+    ),
+    closeModal: dispatch(closeModal())
 });
 
 export default connect(

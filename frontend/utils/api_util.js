@@ -81,3 +81,11 @@ export const upVotePost = post_id => (
         url: `/api/posts/${post_id}/upvote`,
     })
 );
+
+export const postSubscription = (user_id, sub_id) => (
+    $.ajax({
+        method: "POST",
+        url: `/api/users/${user_id}/subscribe`,
+        data: { sub_id }
+    })
+)
