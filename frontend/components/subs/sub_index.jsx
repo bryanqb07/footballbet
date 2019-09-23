@@ -14,13 +14,14 @@ class SubsIndex extends React.Component {
     }
 
     render() {
+        debugger
         const subs = this.props.subs;
         const subIndex = ( Object.keys(subs).length > 0 ? 
             (<div>
                { Object.keys(subs).map(idx => 
                     <Sub 
                         sub={subs[idx]} 
-                        user_id={this.props.currentUser.id}
+                        user_id={this.props.currentUserID}
                         subscribe={this.props.subscribe}
                         key={idx} />)}
                     <SubForm 

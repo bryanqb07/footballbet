@@ -5,7 +5,7 @@ import SubsIndex from './sub_index';
 
 const mapStateToProps = ({ entities, session }) => ({
     subs: entities.subs,
-    currentUser: entities.users[session.id]
+    currentUserID: session.id
 });
 
 const mapDispatchToProps = dispatch => ({

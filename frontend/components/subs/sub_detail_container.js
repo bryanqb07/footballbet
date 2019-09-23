@@ -5,7 +5,7 @@ import { subscribe } from '../../actions/session_actions';
 
 const mapStateToProps = ({ entities, session}, ownProps) => ({
     sub: entities.subs[ownProps.match.params.id],  
-    currentUser: entities.users[session.id]
+    currentUserID: session.id
 });
 
 const mapDispatchToProps = dispatch => ({
