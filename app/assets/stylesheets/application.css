@@ -30,25 +30,65 @@
     background-color: lightblue;
 }
 
-.search-index-wrapper{
-    max-height: 200px;
-    overflow: hidden;
-    overflow-y: scroll;
-}
+.login-form-container {
+   display: flex;
+   justify-content: center;
+ }
 
-.modal-background {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
-}
+ .login-form {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+ }
 
-.modal-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+ .login-input {
+   margin-left: 20px;
+ }
+
+ .login-form-box {
+   outline: 1px solid black;
+   padding: 20px;
+   background: white;
+   position: relative;
+ }
+
+ .filter {
+   font-weight: bold;
+ }
+
+ .header-link {
+   text-decoration: none;
+   color: black;
+ }
+
+ hr {
+   border-bottom: 1px solid grey;
+ }
+
+ .session-submit {
+   text-transform: capitalize;
+ }
+
+ .modal-background {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   background: rgba(0, 0, 0, 0.7);
+   z-index: 10;
+ }
+
+ .modal-child {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+ }
+
+ .close-x {
+   position: absolute;
+   top: 5px;
+   right: 5px;
+   cursor: pointer;
+ }

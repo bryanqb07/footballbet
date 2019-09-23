@@ -12,11 +12,13 @@ class Navbar extends React.Component{
     }
 
     sessionLinks(){
-        <nav className="login-signup">
-            <button onClick={() => this.props.openModal('login')}>Login</button>
-            &nbsp;or&nbsp;
-            <button onClick={() => this.props.openModal('signup')}>Signup</button>
-        </nav>
+        return (
+            <nav className="login-signup">
+                <button onClick={() => this.props.openModal('login')}>Login</button>
+                &nbsp;or&nbsp;
+                <button onClick={() => this.props.openModal('signup')}>Signup</button>
+            </nav>
+        )
     }
 
     render(){
@@ -27,7 +29,7 @@ class Navbar extends React.Component{
                     <button onClick={this.handleClick}>Logout</button>
                 </div>
             ) : 
-            <div className="signup-wrapper">
+            <div className="signup-wrapper">     
                 { this.sessionLinks() }
             </div>
         )

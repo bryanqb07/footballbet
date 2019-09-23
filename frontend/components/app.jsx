@@ -26,9 +26,7 @@ export default () => (
             {/* <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
             <Route path="/subs/:id" component={SubDetailContainer}/>
-            {/* <ProtectedRoute path="/profile" component={ProfileContainer} />
-            <Route path="/booking" component={BookingIndexContainer} />
-            <Route path="/confirmation" component={ConfirmationContainer} /> */}
+            {/* <ProtectedRoute path="/profile" component={ProfileContainer} />*/}
         </Switch>
     </div>
 );
