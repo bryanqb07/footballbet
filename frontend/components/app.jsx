@@ -11,12 +11,13 @@ import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import LoginFormContainer from './forms/login_form_container';
 import SignupFormContainer from './forms/signup_form_container';
 import SubDetailContainer from './subs/sub_detail_container';
-
+import Modal from '../components/modal/modal';
 // import ProfileContainer from './profile/profile_container';
 
 
 export default () => (
     <div className="content-wrapper">
+        <Modal />
         <header>
             <Route path="/" component={NavBar} />
         </header>

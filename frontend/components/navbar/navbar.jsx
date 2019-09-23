@@ -1,7 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-
 
 class Navbar extends React.Component{
     constructor(props){
@@ -14,6 +11,14 @@ class Navbar extends React.Component{
         this.props.logout();
     }
 
+    sessionLinks(){
+        <nav className="login-signup">
+            <button onClick={() => this.props.openModal('login')}>Login</button>
+            &nbsp;or&nbsp;
+            <button onClick={() => this.props.openModal('signup')}>Signup</button>
+        </nav>
+    }
+
     render(){
         return (
             this.props.currentUser ? (
@@ -23,12 +28,12 @@ class Navbar extends React.Component{
                 </div>
             ) : 
             <div className="signup-wrapper">
-                <Link to="/signup">Signup</Link>
-                <span> or </span>
-                <Link to="/login">Login</Link>
+                { this.sessionLinks() }
             </div>
         )
     }
 }
+
+
 
 export default Navbar;
