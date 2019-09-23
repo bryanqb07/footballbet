@@ -4,6 +4,4 @@ class UserVote < ApplicationRecord
 
     belongs_to :votable, polymorphic: true
     belongs_to :user, inverse_of: :user_votes
-
-    
 end
