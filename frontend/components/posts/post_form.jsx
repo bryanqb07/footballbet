@@ -18,10 +18,13 @@ class PostForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const newPost = merge(this.state, { user_id: this.props.currentUser.id, sub_ids: [this.props.subId] });
-        this.props.createPost(newPost);
-
-        this.setState({ title: "", content: ""});
+        if(this.props.currentUser){
+            const newPost = merge(this.state, { user_id: this.props.currentUser.id, sub_id: this.props.subId });
+            this.props.createPost(newPost);
+            this.setState({ title: "", content: ""});
+        }else{
+            this.props.openModal("login");
+        }
     }
 
     render() {

@@ -17,6 +17,7 @@ class PostsIndex extends React.Component {
 
     render() {
         const posts = this.props.posts;
+        console.log(this.props);
         // debugger
         const header = ( Object.keys(posts).length > 0 ?
             (<div>
@@ -37,7 +38,8 @@ class PostsIndex extends React.Component {
                     <PostForm
                         createPost={this.props.createPost}
                         currentUser={this.props.currentUser}
-                        subId={this.props.subId} />
+                        subId={this.props.subId} 
+                        openModal={this.props.openModal} />
                 </div >
             )
 

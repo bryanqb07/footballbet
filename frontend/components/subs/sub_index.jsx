@@ -13,8 +13,13 @@ class SubsIndex extends React.Component {
         this.props.fetchSubs();
     }
 
+    componentDidUpdate(prevProps){
+        if(prevProps.currentUserID != this.props.currentUserID){
+            this.props.fetchSubs();
+        }
+    }
+
     render() {
-        debugger
         const subs = this.props.subs;
         const subIndex = ( Object.keys(subs).length > 0 ? 
             (<div>

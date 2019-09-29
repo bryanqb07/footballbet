@@ -32,6 +32,15 @@ class Api::UsersController < ApplicationController
         end
     end
 
+    def unsubscribe
+        current_user.subscription_ids.delete(params[:sub_id]) if current_user.subscription_ids.include?(params[:sub_id])
+        if current_user.save
+            redirect_to "/api/users/show"
+        else
+            render json: @user.errors.full_messages
+        end
+    end
+
     protected
     
     def no_peeking!

@@ -89,3 +89,11 @@ export const postSubscription = (user_id, sub_id) => (
         data: { sub_id }
     })
 )
+
+export const deleteSubscription = (user_id, sub_id) => (
+    $.ajax({
+        method: "POST",
+        url: `/api/users/${user_id}/unsubscribe`,
+        data: { sub_id }
+    })
+)

@@ -12,7 +12,7 @@ export default (state = {}, action) => {
             return action.subs;
         case RECEIVE_POST:
             const newState = merge(state, {});
-            newState[action.post.sub_ids[0]].post_ids.push(action.post.id)
+            newState[action.post.sub_id].post_ids.push(action.post.id)
             return newState;
         default:
             return state;

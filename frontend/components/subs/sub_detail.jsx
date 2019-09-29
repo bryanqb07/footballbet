@@ -25,7 +25,7 @@ class SubDetail extends React.Component {
                 <Link to="/">Home</Link>
                 <Sub 
                     sub={sub} 
-                    user_id={this.props.currentUserID}
+                    user_id={currentUserID}
                     subscribe={this.props.subscribe}/> 
                 <PostsIndexContainer subId={sub.id} post_ids={sub.post_ids}/>
             </div> : 

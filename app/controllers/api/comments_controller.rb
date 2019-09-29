@@ -3,6 +3,8 @@ class Api::CommentsController < ApplicationController
 
     def create
         @comment = current_user.comments.new(comment_params)
+        @child_comments = []
+        @child_comment_hash = []
         if @comment.save
             redirect_to api_comment_url(@comment)
         else

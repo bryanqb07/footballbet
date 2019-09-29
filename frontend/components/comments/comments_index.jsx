@@ -31,6 +31,8 @@ class CommentsIndex extends React.Component {
                     createComment={this.props.createComment}
                     post_id={this.props.post_id}
                     parent_id={null}
+                    openModal={this.props.openModal}
+                    currentUser={this.props.currentUser}
                 />
                 {header}
             </div >

@@ -36,3 +36,7 @@ export const subscribe = (user_id, sub_id) => dispatch => postSubscription(user_
     .then((user) => dispatch(receiveCurrentUser(user)),
         (errors) => receiveSessionErrors(errors.responseJSON));
 
+export const unsubscribe = (user_id, sub_id) => dispatch => deleteSubscription(user_id, sub_id)
+    .then((user) => dispatch(receiveCurrentUser(user)),
+        (errors) => receiveSessionErrors(errors.responseJSON));
+
