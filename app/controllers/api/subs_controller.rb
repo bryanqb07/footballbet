@@ -2,7 +2,7 @@ class Api::SubsController < ApplicationController
     before_action :moderators_only!, only: [:edit, :update]
 
     def index
-        @subs = !!current_user ? current_user.subscriptions : Sub.all.limit(20)
+        @subs = !!current_user ? current_user.subscriptions.order(created_at: :desc) : Sub.all.order(created_at: :desc).limit(20)
         render :index
     end
 
@@ -10,6 +10,8 @@ class Api::SubsController < ApplicationController
         @sub = current_user.subs.new(sub_params)
 
         if @sub.save
+            current_user.subscription_ids << @sub.id
+            current_user.save
             redirect_to api_sub_url(@sub)
         else
             flash.now[:errors] = @sub.errors.full_messages
@@ -24,7 +26,7 @@ class Api::SubsController < ApplicationController
 
     def show
         @sub = Sub.friendly.find(params[:id])
-        @posts = @sub.posts.includes(:author, { comments: :author })
+        @posts = @sub.posts.order(created_at: :desc).includes(:author, { comments: :author })
         render :show
     end
 

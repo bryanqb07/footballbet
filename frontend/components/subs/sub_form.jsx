@@ -18,8 +18,8 @@ class SubForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        const newSub = merge(this.state, { moderator_id: this.props.currentUser.id});
-        this.props.createSub(newSub);
+        // const newSub = merge(this.state, { moderator_id: this.props.currentUser.id});
+        this.props.createSub(this.state);
         this.setState({ title: "", description: ""})
     }
 
